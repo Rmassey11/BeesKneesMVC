@@ -1,0 +1,43 @@
+﻿@model BeesKneesMVC.Models.BeesKnees
+
+
+<div class="container col-xxl-8 px-4 py-5 mt-5">
+    <div class="row gy-2 h-100 row-cols-md-2 row-cols-1">
+        <div class="col border-2 border-end">
+            <h1 class="fw-bold lh-1 mb-3">BeesKnees</h1>
+            <h4 class="lead">
+                This application will consider the two numbers entered and for each number between 1 and 100
+                it will print BEES for the numbers that are divisible by the first number. KNEES will be printed
+                for the numbers divisible by the second number. BEESKNEES for the numbers divisible by both and
+                simply print the number if it is not divisible by either.
+            </h4>
+            <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+            <p>
+                Enter 2 numbers. The first number will be used to evaluate Bees.
+                The second number will be used to evaluate Knees and BeesKnees will be determined based on
+                the combination of the two numbers.
+            </p>
+        </div>
+        <div class="col">
+            <div>
+                <h5>Enter Numbers</h5>
+                @*Form Goes Here*@
+                <form asp-controller="Home" asp-action="BKPage" method="post">
+                    <div class="form-group">
+                        <label asp-for="BeesValue">Bees Value</label>
+                        <input type="number" asp-for="BeesValue" class="form-control" placeholder="Enter Bees" value="@Model.BeesValue" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="KneesValue">Knees Value</label>
+                        <input type="number" asp-for="KneesValue" class="form-control" placeholder="Enter Knees" value="@Model.KneesValue" />
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+                <h2 class="mt-5 border-bottom border-2">Results</h2>
+                <div class="table-responsive">
+                @*Table Goes Here*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
