@@ -31,6 +31,31 @@ namespace BeesKneesMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult BKPage(BeesKnees beesknees)
         {
+            List<string> bkItems = new();
+            bool bees;
+            bool knees;
+            for (int i = 1; i <= 100; i++)
+            {
+                bees = (i % beesknees.BeesValue == 0);
+                knees = (i % beesknees.KneesValue == 0);
+                if (bees == true && knees == true)
+                {
+                    bkItems.Add("BeesKnees");
+                }
+                else if (bees == true)
+                {
+                    bkItems.Add("Bees");
+                }
+                else if (knees == true)
+                {
+                    bkItems.Add("Knees");
+                }
+                else
+                {
+                    bkItems.Add(i.ToString());
+                }
+            }
+            beesknees.Result = bkItems;
             return View(beesknees);
         }
 

@@ -35,7 +35,19 @@
                 </form>
                 <h2 class="mt-5 border-bottom border-2">Results</h2>
                 <div class="table-responsive">
-                @*Table Goes Here*@
+                    @*Table Goes Here*@
+                    @if (Model.Result.Count > 0)
+                    {
+                        <table class="table-striped table-hover table table-dark">
+                            <thead>
+                                <tr><th colspan="5">Bees Knees Results</th></tr>
+                            </thead>
+                            @for (int i = 0; i < Model.Result.Count(); i += 5)
+                            {
+                                <tr><td>@Model.Result[i]</td><td>@Model.Result[i + 1]</td><td>@Model.Result[i + 2]</td><td>@Model.Result[i + 3]</td><td>@Model.Result[i + 4]</td></tr>
+                            }
+                        </table>
+                    }
                 </div>
             </div>
         </div>
